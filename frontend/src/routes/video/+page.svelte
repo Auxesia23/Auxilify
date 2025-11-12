@@ -1,5 +1,6 @@
 <script lang="ts">
     import FolderButton from "$lib/components/FolderButton.svelte";
+    import PathInput from "$lib/components/PathInput.svelte";
     import {
         OpenFile,
         ConvertVideo,
@@ -80,43 +81,19 @@
                 Video Converter
             </h1>
 
-            <div class="flex flex-col mb-4">
-                <label for="input-file" class="label">
-                    <span class="label-text text-gray-400 font-medium"
-                        >Input File:</span
-                    >
-                </label>
-                <div class="flex items-center space-x-3">
-                    <input
-                        id="input-file"
-                        type="text"
-                        placeholder="No file selected"
-                        bind:value={selectedPath}
-                        readonly
-                        class="input input-bordered w-full"
-                    />
-                    <FolderButton onClick={handleSelectFile} />
-                </div>
-            </div>
+            <PathInput
+                onClick={handleSelectFile}
+                bind:value={selectedPath}
+                labelText={"File Input"}
+                placeholderText={"No file selected"}
+            />
 
-            <div class="flex flex-col mb-6">
-                <label for="input-dest" class="label">
-                    <span class="label-text text-gray-400 font-medium"
-                        >Output Folder:</span
-                    >
-                </label>
-                <div class="flex items-center space-x-3">
-                    <input
-                        id="input-dest"
-                        type="text"
-                        placeholder="No Folder selected"
-                        bind:value={destinationPath}
-                        readonly
-                        class="input input-bordered w-full"
-                    />
-                    <FolderButton onClick={handlerSelectDestination} />
-                </div>
-            </div>
+            <PathInput
+                onClick={handlerSelectDestination}
+                bind:value={destinationPath}
+                labelText={"Outpur Folder"}
+                placeholderText={"No folder selected"}
+            />
 
             <!-- Convert To dropdown -->
             <div class="form-control mb-6">

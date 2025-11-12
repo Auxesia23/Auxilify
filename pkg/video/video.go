@@ -40,8 +40,21 @@ func (c *VideoConverter) OpenFile() (string, error) {
 func (c *VideoConverter) ConvertVideo(target string) error {
 	c.TargetType = target
 
+	args := ffmpeg_go.KwArgs{}
+
+	switch target {
+	case "mp3":
+		args = ffmpeg_go.KwArgs{
+			"b:a": "128k",
+		}
+	case "opus":
+		args = ffmpeg_go.KwArgs{
+			"b:a": "128k",
+		}
+	}
+
 	err := ffmpeg_go.Input(c.Path).
-		Output(fmt.Sprintf("%v/converted.%v", c.DestDir, c.TargetType)).
+		Output(fmt.Sprintf("%v/converted.%v", c.DestDir, c.TargetType), args).
 		OverWriteOutput().
 		Run()
 	if err != nil {

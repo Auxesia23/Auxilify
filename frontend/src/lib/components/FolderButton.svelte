@@ -11,7 +11,7 @@
 <button
     class="btn btn-primary border-none transition duration-150 shadow-md"
     onclick={handleClick}
-    title="Select Destination Folder"
+    title="Open File Manager"
 >
     <svg
         xmlns="http://www.w3.org/2000/svg"
