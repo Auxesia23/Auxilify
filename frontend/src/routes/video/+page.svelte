@@ -1,4 +1,5 @@
 <script lang="ts">
+    import FolderButton from "$lib/components/FolderButton.svelte";
     import {
         OpenFile,
         ConvertVideo,
@@ -94,14 +95,7 @@
                         readonly
                         class="input input-bordered w-full"
                     />
-                    <button
-                        class="btn btn-primary border-none transition duration-150 shadow-md"
-                        onclick={handleSelectFile}
-                        title="Select Source File"
-                    >
-                        <i class="fas fa-folder-open"></i>
-                        <span class="hidden sm:inline">Select</span>
-                    </button>
+                    <FolderButton onClick={handleSelectFile} />
                 </div>
             </div>
 
@@ -120,14 +114,7 @@
                         readonly
                         class="input input-bordered w-full"
                     />
-                    <button
-                        class="btn btn-primary border-none transition duration-150 shadow-md"
-                        onclick={handlerSelectDestination}
-                        title="Select Destination Folder"
-                    >
-                        <i class="fas fa-folder"></i>
-                        <span class="hidden sm:inline">Folder</span>
-                    </button>
+                    <FolderButton onClick={handlerSelectDestination} />
                 </div>
             </div>
 
@@ -150,6 +137,7 @@
 
                         <optgroup label="Audio Formats (Extract)">
                             <option value="mp3">MP3</option>
+                            <option value="opus">OPUS</option>
                             <option value="wav">WAV (Lossless)</option>
                             <option value="flac">FLAC (Lossless)</option>
                         </optgroup>

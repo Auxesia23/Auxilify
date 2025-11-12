@@ -1,4 +1,5 @@
 <script lang="ts">
+    import FolderButton from "$lib/components/FolderButton.svelte";
     import {
         OpenFile,
         ConvertImage,
@@ -99,9 +100,7 @@
                     readonly
                     class="input input-bordered w-full truncate"
                 />
-                <button class="btn btn-secondary" onclick={handleSelectFile}>
-                    Select File
-                </button>
+                <FolderButton onClick={handleSelectFile} />
             </div>
 
             <!-- Convert To dropdown -->
