@@ -1,5 +1,4 @@
 <script lang="ts">
-    import FolderButton from "$lib/components/FolderButton.svelte";
     import PathInput from "$lib/components/PathInput.svelte";
     import {
         OpenFile,
